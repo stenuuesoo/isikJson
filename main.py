@@ -104,7 +104,8 @@ def log_and_prepare_results(filtered_docs: List[Dict[str, Any]]) -> List[str]:
         result_line = f"{doc_type} {doc_status} nr: {doc_number}"
         if "Dokument.KehtibKuni" in doc:
             result_line += f" kehtib kuni {doc['Dokument.KehtibKuni']}"
-        logging.info(result_line)
+        #logging.info(result_line)
+        print(result_line)
         results.append(result_line)
     return results
 
@@ -141,7 +142,8 @@ def main() -> None:
 
     keys_result = fetch_data_from_keys(json_result)
     name_details = assemble_name_details(keys_result)
-    logging.info(name_details)
+    print(name_details)
+    #logging.info(name_details)
 
     results = filter_and_log_documents(keys_result, search_criteria)
     if results:
